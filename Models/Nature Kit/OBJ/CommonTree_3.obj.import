@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djgksinooypp5"
+path="res://.godot/imported/CommonTree_3.obj-4a452886a118b1a125c5912fc92dbe17.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CommonTree_3.obj-4a452886a118b1a125c5912fc92dbe17.mesh"]
+
+source_file="res://Models/Nature Kit/OBJ/CommonTree_3.obj"
+dest_files=["res://.godot/imported/CommonTree_3.obj-4a452886a118b1a125c5912fc92dbe17.mesh", "res://.godot/imported/CommonTree_3.obj-4a452886a118b1a125c5912fc92dbe17.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

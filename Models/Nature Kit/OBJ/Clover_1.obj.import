@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://irulea4hrg4a"
+path="res://.godot/imported/Clover_1.obj-308886550a9a247109922616d4de4ddd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Clover_1.obj-308886550a9a247109922616d4de4ddd.mesh"]
+
+source_file="res://Models/Nature Kit/OBJ/Clover_1.obj"
+dest_files=["res://.godot/imported/Clover_1.obj-308886550a9a247109922616d4de4ddd.mesh", "res://.godot/imported/Clover_1.obj-308886550a9a247109922616d4de4ddd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

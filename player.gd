@@ -3,8 +3,8 @@ extends CharacterBody3D
 var speed = 5
 var gravity = 9.8
 var jump = 4.5
-var hp: int = 10
-var max_hp: int = 10
+var hp: int = 5
+var max_hp: int = 5
 
 var damage = 1
 var is_invulnerable = false
@@ -22,6 +22,12 @@ var EnemyPart = preload("res://enemypart.tscn")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	#Configura la direccion del jugador en el mundo
+	rotation.y = deg_to_rad(-90)
+	# Reinicia rotaciones locales del head
+	head.rotation = Vector3(0, 0, 0)
+
 
 func update_health_bar():
 	if health_bar:
@@ -48,7 +54,7 @@ func _physics_process(delta):
 		velocity.y = jump
 	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (head.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -102,11 +108,12 @@ func die():
 	var game_over_label = get_tree().current_scene.get_node("UI/GameOverLabel")
 	game_over_label.text = "GAME OVER"
 	game_over_label.visible = true
+	get_tree().paused = true
 
 	await get_tree().create_timer(2.5).timeout  # Esperar 2.5 segundos
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://MainMenu.tscn")
-
 
 
 func _on_InvulTimer_timeout():
