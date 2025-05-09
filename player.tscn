@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://lqp43ped585e"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bo208"]
+[ext_resource type="PackedScene" uid="uid://drns2kevx2ak2" path="res://Models/Armas/blasterA.glb" id="3_6qqb6"]
+[ext_resource type="Script" path="res://crosshair.gd" id="3_bfmls"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnmr6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_swlkv"]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1_bo208")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_hnmr6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["Player"]]
+mesh = SubResource("CapsuleMesh_swlkv")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+
+[node name="gun" parent="Node3D/Camera3D" instance=ExtResource("3_6qqb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.526943, -0.343078, -0.450028)
+
+[node name="RayCast3D" type="RayCast3D" parent="Node3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -150, 0)
+
+[node name="Firerate" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("3_bfmls")
+
+[node name="Center" type="Control" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="Line2D" parent="Crosshair/Center"]
+points = PackedVector2Array(0.001, 0, 0, 0)
+width = 3.5
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="RIGHT" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(10, 0)
+points = PackedVector2Array(10, 0, 0, 0)
+width = 2.5
+
+[node name="BOTTOM" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(0, 10)
+rotation = 1.57079
+points = PackedVector2Array(10, 0, 0, 0)
+width = 2.5
+
+[node name="LEFT" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(-10, 0)
+rotation = -3.14159
+points = PackedVector2Array(10, 0, 0, 0)
+width = 2.5
+
+[node name="TOP" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(0, -10)
+rotation = -1.57079
+points = PackedVector2Array(10, 0, 0, 0)
+width = 2.5
+
+[node name="InvulTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Firerate" to="." method="_on_firerate_timeout"]
+[connection signal="timeout" from="InvulTimer" to="." method="_on_InvulTimer_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds4n4ts034ymn"]
+
+[ext_resource type="Script" path="res://enemypart.gd" id="1_d1gk6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w4l3c"]
+emission_shape = 1
+emission_sphere_radius = 0.02
+direction = Vector3(1, 0, -1)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -2.5, 0)
+scale_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idxkj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3g18w"]
+material = SubResource("StandardMaterial3D_idxkj")
+radius = 0.04
+height = 0.08
+
+[node name="Enemypart" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_w4l3c")
+draw_pass_1 = SubResource("SphereMesh_3g18w")
+script = ExtResource("1_d1gk6")
