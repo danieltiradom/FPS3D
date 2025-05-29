@@ -1,16 +1,18 @@
 extends CharacterBody3D
 
-var health = 15
+var health = 2
 
 var enemy_damage: int = 1
 var attack_dist: float = 1.5
 var attack_rate: float = 0.1
 
-var move_speed: float = 2.5
+var move_speed: float = 3.5
 var vel: Vector3 = Vector3.ZERO
 
 @onready var timer: Timer = $Timer
 @onready var player: Node3D = null
+
+@export var next_enemy_scene: PackedScene
 
 signal enemy_died
 
@@ -62,5 +64,9 @@ func Enemy_hit(damage):
 		die()
 	
 func die():
+	if next_enemy_scene:
+		var new_enemy = next_enemy_scene.instantiate()
+		new_enemy.global_position = global_position
+		get_tree().current_scene.add_child(new_enemy)
 	emit_signal("enemy_died")
 	queue_free()

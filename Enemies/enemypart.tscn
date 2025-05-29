@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds4n4ts034ymn"]
 
-[ext_resource type="Script" path="res://enemypart.gd" id="1_d1gk6"]
+[ext_resource type="Script" path="res://Enemies/enemypart.gd" id="1_d1gk6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w4l3c"]
 emission_shape = 1

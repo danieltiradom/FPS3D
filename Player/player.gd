@@ -21,7 +21,7 @@ var canshoot = true
 
 
 
-var EnemyPart = preload("res://enemypart.tscn")
+var EnemyPart = preload("res://Enemies/enemypart.tscn")
 
 
 func _ready():

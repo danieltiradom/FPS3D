@@ -1,8 +1,8 @@
 [gd_scene load_steps=41 format=3 uid="uid://bw3brtldqm8rw"]
 
-[ext_resource type="PackedScene" uid="uid://lqp43ped585e" path="res://player.tscn" id="1_6nsib"]
-[ext_resource type="PackedScene" uid="uid://d2s86xqbmh1wc" path="res://Enemy.tscn" id="2_tiqnm"]
+[ext_resource type="PackedScene" uid="uid://lqp43ped585e" path="res://Player/player.tscn" id="1_6nsib"]
 [ext_resource type="Script" path="res://wave_manager.gd" id="3_23mup"]
+[ext_resource type="PackedScene" uid="uid://b3phq6g2nvpa5" path="res://Enemies/BlueEnemy.tscn" id="3_408ls"]
 [ext_resource type="ArrayMesh" uid="uid://bufvm58svh1ah" path="res://Models/Environment/naturePack_066.obj" id="3_vo06c"]
 [ext_resource type="ArrayMesh" uid="uid://dm6wykmwgsbya" path="res://Models/Environment/naturePack_065.obj" id="4_7buak"]
 [ext_resource type="ArrayMesh" uid="uid://cis2l5cirlthn" path="res://Models/Environment/naturePack_019.obj" id="7_icwew"]
@@ -108,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.733, 1.30848, 0)
 
 [node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("3_23mup")
-enemy_scene = ExtResource("2_tiqnm")
+enemy_scene = ExtResource("3_408ls")
 spawn_points = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 
 [node name="SpawnPoint" type="Marker3D" parent="WaveManager"]
