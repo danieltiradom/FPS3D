@@ -12,6 +12,8 @@ var vel: Vector3 = Vector3.ZERO
 @onready var timer: Timer = $Timer
 @onready var player: Node3D = null
 
+signal enemy_died
+
 func _ready() -> void:
 	# Buscar al jugador en el grupo "Player"
 	var players = get_tree().get_nodes_in_group("Player")
@@ -60,4 +62,5 @@ func Enemy_hit(damage):
 		die()
 	
 func die():
+	emit_signal("enemy_died")
 	queue_free()

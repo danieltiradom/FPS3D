@@ -6,6 +6,10 @@ var jump = 4.5
 var hp: int = 5
 var max_hp: int = 5
 
+var total_ammo = 60
+var ammo = total_ammo
+var recargando = false
+
 var damage = 1
 var is_invulnerable = false
 
@@ -64,10 +68,22 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	if Input.is_action_pressed("Shoot") && canshoot == true:
+	if Input.is_action_pressed("Shoot") && canshoot == true && ammo > 0:
 		canshoot = false
 		$Firerate.start()
 		shoot()
+		ammo -= 1
+		print(ammo)
+		
+	if ammo == 0 && recargando == false:
+		recargar()
+		
+	if Input.is_action_just_pressed("Reload") && recargando == false:
+		recargar()
+		
+	var ammo_label = get_tree().get_root().get_node("Main/UI/Ammo_label")
+	ammo_label.text = "Munición: " + str(ammo) + " / " + str(total_ammo)
+
 
 func shoot():
 	if raycast.is_colliding():
@@ -118,3 +134,14 @@ func die():
 
 func _on_InvulTimer_timeout():
 	is_invulnerable = false
+	
+func recargar():
+	recargando = true
+	print("Recarganding")
+	$Firerate.stop()
+	canshoot = false
+	await get_tree().create_timer(3.0).timeout
+	ammo = total_ammo
+	canshoot = true
+	$Firerate.start()
+	recargando = false
