@@ -18,12 +18,46 @@ var enemy_scenes = {
 }
 
 var rounds_data = {
-	1: repeat_str("Red", 10) + repeat_str("Blue", 25) + repeat_str("Red", 15),
+	1: repeat_str("Red", 20),
 	2: repeat_str("Red", 35),
 	3: repeat_str("Red", 25) + repeat_str("Blue", 5),
 	4: repeat_str("Red", 35) + repeat_str("Blue", 18),
 	5: repeat_str("Red", 5) + repeat_str("Blue", 27),
-	6: repeat_str("Red", 15) + repeat_str("Blue", 15) + repeat_str("Green", 4)
+	6: repeat_str("Red", 15) + repeat_str("Blue", 15) + repeat_str("Green", 4),
+	7: repeat_str("Red", 20) + repeat_str("Blue", 20) + repeat_str("Green", 5),
+	8: repeat_str("Red", 10) + repeat_str("Blue", 20) + repeat_str("Green", 14),
+	9: repeat_str("Green", 30),
+	10: repeat_str("Blue", 102),
+	11: repeat_str("Red", 10) + repeat_str("Blue", 10) + repeat_str("Green", 12) + repeat_str("Yellow", 3),
+	12: repeat_str("Blue", 15) + repeat_str("Green", 10) + repeat_str("Yellow", 5),
+	13: repeat_str("Blue", 50) + repeat_str("Green", 23),
+	14: repeat_str("Red", 49) + repeat_str("Blue", 15) + repeat_str("Green", 10) + repeat_str("Yellow", 9),
+	15: repeat_str("Red", 20) + repeat_str("Blue", 15) + repeat_str("Green", 12) + repeat_str("Yellow", 10) + repeat_str("Pink", 5),
+	16: repeat_str("Green", 40) + repeat_str("Yellow", 8),
+	17: repeat_str("Regrow Yellow", 12),
+	18: repeat_str("Green", 80),
+	19: repeat_str("Green", 10) + repeat_str("Yellow", 4) + repeat_str("Regrow Yellow", 5) + repeat_str("Pink", 15),
+	20: repeat_str("Black", 6),
+	21: repeat_str("Yellow", 40) + repeat_str("Pink", 14),
+	22: repeat_str("White", 16),
+	23: repeat_str("Black", 7) + repeat_str("White", 7),
+	24: repeat_str("Blue", 20) + repeat_str("Camo Green", 1),
+	25: repeat_str("Regrow Yellow", 25) + repeat_str("Purple", 10),
+	26: repeat_str("Pink", 23) + repeat_str("Zebra", 4),
+	27: repeat_str("Red", 100) + repeat_str("Blue", 60) + repeat_str("Green", 45) + repeat_str("Yellow", 45),
+	28: repeat_str("Lead", 6),
+	29: repeat_str("Yellow", 50) + repeat_str("Regrow Yellow", 15),
+	30: repeat_str("Lead", 9),
+	31: repeat_str("Black", 8) + repeat_str("White", 8) + repeat_str("Zebra", 8) + repeat_str("Regrow Zebra", 2),
+	32: repeat_str("Black", 15) + repeat_str("White", 20) + repeat_str("Purple", 10),
+	33: repeat_str("Camo Red", 20) + repeat_str("Camo Yellow", 13),
+	34: repeat_str("Yellow", 160) + repeat_str("Zebra", 6),
+	35: repeat_str("Pink", 35) + repeat_str("Black", 30) + repeat_str("White", 25) + repeat_str("Rainbow", 5),
+	36: repeat_str("Pink", 140) + repeat_str("Camo Regrow Green", 20),
+	37: repeat_str("Black", 25) + repeat_str("White", 25) + repeat_str("Camo White", 7) + repeat_str("Zebra", 10) + repeat_str("Lead", 15),
+	38: repeat_str("Pink", 42) + repeat_str("White", 17) + repeat_str("Zebra", 10) + repeat_str("Lead", 14) + repeat_str("Ceramic", 2),
+	39: repeat_str("Black", 10) + repeat_str("White", 10) + repeat_str("Zebra", 20) + repeat_str("Rainbow", 18) + repeat_str("Regrow Rainbow", 2),
+	40: repeat_str("MOAB", 1)
 }
 
 func _ready():
