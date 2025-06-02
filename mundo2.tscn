@@ -1,0 +1,1049 @@
+[gd_scene load_steps=30 format=3 uid="uid://c2vbxejuy2hre"]
+
+[ext_resource type="Texture2D" uid="uid://dwvkmaa67dtc8" path="res://Models/WinterAssets/Mountains/Textures/aaaa.jpg" id="1_duhe3"]
+[ext_resource type="PackedScene" uid="uid://lqp43ped585e" path="res://Player/player.tscn" id="1_sbcot"]
+[ext_resource type="Script" path="res://wave_manager.gd" id="2_xad3f"]
+[ext_resource type="PackedScene" uid="uid://b3phq6g2nvpa5" path="res://Enemies/BlueEnemy.tscn" id="3_pew74"]
+[ext_resource type="PackedScene" uid="uid://2k110xsbgqm0" path="res://Models/WinterAssets/Mountains/Tscn/mountain_winter_001.tscn" id="10_b33ht"]
+[ext_resource type="Texture2D" uid="uid://fb0mmenegngy" path="res://Models/textura_blanca.jpg" id="11_dkrng"]
+[ext_resource type="PackedScene" uid="uid://ccfnqqk2qub46" path="res://Models/WinterAssets/Mountains/Tscn/mountain_winter_006.tscn" id="11_v4ngk"]
+[ext_resource type="PackedScene" uid="uid://c5mtwdrwa6v6o" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_001.fbx" id="13_e38bo"]
+[ext_resource type="PackedScene" uid="uid://dihmeq4yxkeuw" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_003.fbx" id="14_1y3df"]
+[ext_resource type="PackedScene" uid="uid://ca7btt4c018si" path="res://Models/WinterAssets/Mountains/Tscn/mountain_winter_005.tscn" id="14_7242p"]
+[ext_resource type="PackedScene" uid="uid://dome8fjhbiw1" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_010.fbx" id="16_eine1"]
+[ext_resource type="PackedScene" uid="uid://b771odhlxy4yd" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_005.fbx" id="16_itvey"]
+[ext_resource type="PackedScene" uid="uid://claq2j65pflji" path="res://Models/Nature Kit/FBX/Grass_Wispy_Short.fbx" id="16_m0siw"]
+[ext_resource type="PackedScene" uid="uid://dpy2g2j2ryb5d" path="res://Models/Nature Kit/FBX/RockPath_Round_Small_1.fbx" id="17_2pcon"]
+[ext_resource type="PackedScene" uid="uid://dl7s72kcr2itw" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_011.fbx" id="17_bphd2"]
+[ext_resource type="PackedScene" uid="uid://5sqc3u6cyp5h" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_012.fbx" id="18_mvy6g"]
+[ext_resource type="PackedScene" uid="uid://bsbkcq46mkvfk" path="res://Models/Nature Kit/FBX/RockPath_Round_Small_2.fbx" id="18_scvra"]
+[ext_resource type="PackedScene" uid="uid://b87alxri6m514" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_013.fbx" id="19_uwh1o"]
+[ext_resource type="PackedScene" uid="uid://cjy32r2d0q0p8" path="res://Models/Nature Kit/FBX/RockPath_Round_Thin.fbx" id="19_wn1vc"]
+[ext_resource type="PackedScene" uid="uid://dcprik5687sqf" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_014.fbx" id="20_vkjbi"]
+[ext_resource type="PackedScene" uid="uid://dk8g8a31sql8v" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_015.fbx" id="21_7scxq"]
+[ext_resource type="PackedScene" uid="uid://30oyabytlhrh" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_019.fbx" id="22_c7uoi"]
+[ext_resource type="PackedScene" uid="uid://b1ttxik8ej8c1" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_020.fbx" id="23_dauj7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7ekk"]
+albedo_texture = ExtResource("1_duhe3")
+uv1_scale = Vector3(60, 60, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kglse"]
+material = SubResource("StandardMaterial3D_g7ekk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lwvwl"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gurp0"]
+sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
+
+[sub_resource type="Sky" id="Sky_0wfsd"]
+sky_material = SubResource("ProceduralSkyMaterial_gurp0")
+
+[sub_resource type="Environment" id="Environment_f2t5n"]
+background_mode = 2
+sky = SubResource("Sky_0wfsd")
+ssao_enabled = true
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(80, 0, 0, 0, 0.05, 0, 0, 0, 80, -0.863884, 0.0921865, 0.0844762)
+mesh = SubResource("BoxMesh_kglse")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_lwvwl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0108731, 0.999941, 0, -0.999941, -0.0108731, 0, 31.9428, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f2t5n")
+
+[node name="Player" parent="." instance=ExtResource("1_sbcot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.733, 1.30848, 0)
+
+[node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("2_xad3f")
+enemy_scene = ExtResource("3_pew74")
+spawn_points = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+
+[node name="SpawnPoint" type="Marker3D" parent="WaveManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.38829, 0.451289, 2.65081)
+
+[node name="SpawnPoint2" type="Marker3D" parent="WaveManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.38829, 0.451289, -5.74923)
+
+[node name="SpawnPoint3" type="Marker3D" parent="WaveManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7453, 0.451289, -1.04584)
+
+[node name="SpawnPoint4" type="Marker3D" parent="WaveManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77541, 0.451289, -1.04584)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 35.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("11_dkrng")
+texture_progress = ExtResource("11_dkrng")
+tint_under = Color(0.791999, 0.791999, 0.791999, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="GameOverLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -48.0
+offset_right = 0.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+
+[node name="WaveLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -168.0
+offset_right = 20.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+
+[node name="Ammo_label" type="Label" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -46.0
+offset_right = 55.0
+offset_bottom = -15.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 22
+
+[node name="Arboles" type="Node" parent="."]
+
+[node name="Entorno" type="Node" parent="."]
+
+[node name="Grass_Wispy_Short" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 9.8646, 0.117186, -6.06597)
+
+[node name="Grass_Wispy_Short2" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 9.12395, 0.117186, -6.15751)
+
+[node name="Grass_Wispy_Short3" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 9.56497, 0.117186, -6.69602)
+
+[node name="Grass_Wispy_Short4" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 11.2156, 0.117186, -5.89901)
+
+[node name="Grass_Wispy_Short5" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.475, 0.117186, -5.99054)
+
+[node name="Grass_Wispy_Short6" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.916, 0.117186, -6.52906)
+
+[node name="Grass_Wispy_Short7" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 9.72055, 0.117186, -4.90033)
+
+[node name="Grass_Wispy_Short8" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 8.9799, 0.117186, -4.99186)
+
+[node name="Grass_Wispy_Short9" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 9.42092, 0.117186, -5.53037)
+
+[node name="Grass_Wispy_Short10" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 11.0716, 0.117186, -4.73337)
+
+[node name="Grass_Wispy_Short11" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.3309, 0.117186, -4.8249)
+
+[node name="Grass_Wispy_Short12" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.7719, 0.117186, -5.36341)
+
+[node name="Grass_Wispy_Short13" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 9.55722, 0.117186, -3.57871)
+
+[node name="Grass_Wispy_Short14" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 8.81657, 0.117186, -3.67025)
+
+[node name="Grass_Wispy_Short15" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 9.25759, 0.117186, -4.20876)
+
+[node name="Grass_Wispy_Short16" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 10.9082, 0.117186, -3.41175)
+
+[node name="Grass_Wispy_Short17" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.1676, 0.117186, -3.50328)
+
+[node name="Grass_Wispy_Short18" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.6086, 0.117186, -4.0418)
+
+[node name="Grass_Wispy_Short19" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 9.41317, 0.117186, -2.41307)
+
+[node name="Grass_Wispy_Short20" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 8.67252, 0.117186, -2.5046)
+
+[node name="Grass_Wispy_Short21" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 9.11354, 0.117186, -3.04311)
+
+[node name="Grass_Wispy_Short22" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 10.7642, 0.117186, -2.24611)
+
+[node name="Grass_Wispy_Short23" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.0235, 0.117186, -2.33764)
+
+[node name="Grass_Wispy_Short24" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 10.4646, 0.117186, -2.87615)
+
+[node name="Grass_Wispy_Short25" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 12.4828, 0.117186, -5.74242)
+
+[node name="Grass_Wispy_Short26" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 11.7421, 0.117186, -5.83395)
+
+[node name="Grass_Wispy_Short27" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 12.1831, 0.117186, -6.37246)
+
+[node name="Grass_Wispy_Short28" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 13.8338, 0.117186, -5.57546)
+
+[node name="Grass_Wispy_Short29" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 13.0931, 0.117186, -5.66699)
+
+[node name="Grass_Wispy_Short30" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 13.5342, 0.117186, -6.2055)
+
+[node name="Grass_Wispy_Short31" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 12.3387, 0.117186, -4.57677)
+
+[node name="Grass_Wispy_Short32" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 11.5981, 0.117186, -4.6683)
+
+[node name="Grass_Wispy_Short33" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 12.0391, 0.117186, -5.20682)
+
+[node name="Grass_Wispy_Short34" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 13.6897, 0.117186, -4.40981)
+
+[node name="Grass_Wispy_Short35" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 12.9491, 0.117186, -4.50134)
+
+[node name="Grass_Wispy_Short36" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 13.3901, 0.117186, -5.03985)
+
+[node name="Grass_Wispy_Short37" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 12.1754, 0.117186, -3.25516)
+
+[node name="Grass_Wispy_Short38" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 11.4347, 0.117186, -3.34669)
+
+[node name="Grass_Wispy_Short39" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 11.8758, 0.117186, -3.8852)
+
+[node name="Grass_Wispy_Short40" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 13.5264, 0.117186, -3.0882)
+
+[node name="Grass_Wispy_Short41" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 12.7858, 0.117186, -3.17973)
+
+[node name="Grass_Wispy_Short42" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 13.2268, 0.117186, -3.71824)
+
+[node name="Grass_Wispy_Short43" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 12.0313, 0.117186, -2.08951)
+
+[node name="Grass_Wispy_Short44" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 11.2907, 0.117186, -2.18104)
+
+[node name="Grass_Wispy_Short45" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 11.7317, 0.117186, -2.71956)
+
+[node name="Grass_Wispy_Short46" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.99245, 0, -0.122649, 0, 1, 0, 0.122649, 0, 0.99245, 13.3823, 0.117186, -1.92255)
+
+[node name="Grass_Wispy_Short47" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 12.6417, 0.117186, -2.01408)
+
+[node name="Grass_Wispy_Short48" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.797552, 0, -0.60325, 0, 1, 0, 0.60325, 0, 0.797552, 13.0827, 0.117186, -2.55259)
+
+[node name="Grass_Wispy_Short49" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 8.34532, 0.117186, -6.11923)
+
+[node name="Grass_Wispy_Short50" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 8.18686, 0.117186, -6.8485)
+
+[node name="Grass_Wispy_Short51" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 8.84089, 0.117186, -6.61029)
+
+[node name="Grass_Wispy_Short52" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 8.63436, 0.117186, -4.78898)
+
+[node name="Grass_Wispy_Short53" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 8.4759, 0.117186, -5.51825)
+
+[node name="Grass_Wispy_Short54" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 9.12993, 0.117186, -5.28004)
+
+[node name="Grass_Wispy_Short55" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 7.19759, 0.117186, -5.86985)
+
+[node name="Grass_Wispy_Short56" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.03913, 0.117186, -6.59911)
+
+[node name="Grass_Wispy_Short57" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.69316, 0.117186, -6.36091)
+
+[node name="Grass_Wispy_Short58" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 7.48663, 0.117186, -4.53959)
+
+[node name="Grass_Wispy_Short59" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.32817, 0.117186, -5.26886)
+
+[node name="Grass_Wispy_Short60" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.9822, 0.117186, -5.03065)
+
+[node name="Grass_Wispy_Short61" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.89628, 0.117186, -5.58709)
+
+[node name="Grass_Wispy_Short62" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.73782, 0.117186, -6.31636)
+
+[node name="Grass_Wispy_Short63" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.39185, 0.117186, -6.07815)
+
+[node name="Grass_Wispy_Short64" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 6.18533, 0.117186, -4.25684)
+
+[node name="Grass_Wispy_Short65" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.02687, 0.117186, -4.98611)
+
+[node name="Grass_Wispy_Short66" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.6809, 0.117186, -4.7479)
+
+[node name="Grass_Wispy_Short67" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 4.74855, 0.117186, -5.33771)
+
+[node name="Grass_Wispy_Short68" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.59009, 0.117186, -6.06697)
+
+[node name="Grass_Wispy_Short69" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.24412, 0.117186, -5.82877)
+
+[node name="Grass_Wispy_Short70" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.0376, 0.117186, -4.00745)
+
+[node name="Grass_Wispy_Short71" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.87914, 0.117186, -4.73672)
+
+[node name="Grass_Wispy_Short72" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.53317, 0.117186, -4.49851)
+
+[node name="Grass_Wispy_Short73" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 8.90546, 0.117186, -3.5413)
+
+[node name="Grass_Wispy_Short74" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 8.74701, 0.117186, -4.27057)
+
+[node name="Grass_Wispy_Short75" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 9.40103, 0.117186, -4.03236)
+
+[node name="Grass_Wispy_Short76" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 9.19451, 0.117186, -2.21105)
+
+[node name="Grass_Wispy_Short77" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 9.03605, 0.117186, -2.94032)
+
+[node name="Grass_Wispy_Short78" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 9.69008, 0.117186, -2.70211)
+
+[node name="Grass_Wispy_Short79" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 7.75774, 0.117186, -3.29192)
+
+[node name="Grass_Wispy_Short80" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.59928, 0.117186, -4.02119)
+
+[node name="Grass_Wispy_Short81" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 8.2533, 0.117186, -3.78298)
+
+[node name="Grass_Wispy_Short82" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 8.04678, 0.117186, -1.96167)
+
+[node name="Grass_Wispy_Short83" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.88832, 0.117186, -2.69093)
+
+[node name="Grass_Wispy_Short84" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 8.54235, 0.117186, -2.45273)
+
+[node name="Grass_Wispy_Short85" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 6.45643, 0.117186, -3.00916)
+
+[node name="Grass_Wispy_Short86" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.29797, 0.117186, -3.73843)
+
+[node name="Grass_Wispy_Short87" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.952, 0.117186, -3.50022)
+
+[node name="Grass_Wispy_Short88" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 6.74547, 0.117186, -1.67891)
+
+[node name="Grass_Wispy_Short89" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.58702, 0.117186, -2.40818)
+
+[node name="Grass_Wispy_Short90" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 7.24104, 0.117186, -2.16997)
+
+[node name="Grass_Wispy_Short211" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.35774, 0.117186, -3.29192)
+
+[node name="Grass_Wispy_Short212" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.19928, 0.117186, -4.02119)
+
+[node name="Grass_Wispy_Short213" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.85331, 0.117186, -3.78298)
+
+[node name="Grass_Wispy_Short214" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.64678, 0.117186, -1.96167)
+
+[node name="Grass_Wispy_Short215" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.48832, 0.117186, -2.69093)
+
+[node name="Grass_Wispy_Short216" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.14235, 0.117186, -2.45273)
+
+[node name="Grass_Wispy_Short217" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 4.05643, 0.117186, -3.00916)
+
+[node name="Grass_Wispy_Short218" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 3.89797, 0.117186, -3.73843)
+
+[node name="Grass_Wispy_Short219" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.552, 0.117186, -3.50022)
+
+[node name="Grass_Wispy_Short220" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 4.34548, 0.117186, -1.67891)
+
+[node name="Grass_Wispy_Short221" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.18702, 0.117186, -2.40818)
+
+[node name="Grass_Wispy_Short222" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.84105, 0.117186, -2.16997)
+
+[node name="Grass_Wispy_Short223" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.35774, 0.117186, -1.24342)
+
+[node name="Grass_Wispy_Short224" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.19928, 0.117186, -1.97269)
+
+[node name="Grass_Wispy_Short225" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.85331, 0.117186, -1.73449)
+
+[node name="Grass_Wispy_Short226" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.64678, 0.117186, 0.0868273)
+
+[node name="Grass_Wispy_Short227" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.48832, 0.117186, -0.64244)
+
+[node name="Grass_Wispy_Short228" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.14235, 0.117186, -0.404234)
+
+[node name="Grass_Wispy_Short229" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 4.05643, 0.117186, -0.96067)
+
+[node name="Grass_Wispy_Short230" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 3.89797, 0.117186, -1.68994)
+
+[node name="Grass_Wispy_Short231" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.552, 0.117186, -1.45173)
+
+[node name="Grass_Wispy_Short232" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 4.34548, 0.117186, 0.369582)
+
+[node name="Grass_Wispy_Short233" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.18702, 0.117186, -0.359684)
+
+[node name="Grass_Wispy_Short234" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.84105, 0.117186, -0.121479)
+
+[node name="Grass_Wispy_Short235" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.05721, 0.117186, -5.54397)
+
+[node name="Grass_Wispy_Short236" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.89875, 0.117186, -6.27324)
+
+[node name="Grass_Wispy_Short237" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.55278, 0.117186, -6.03503)
+
+[node name="Grass_Wispy_Short238" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.34626, 0.117186, -4.21372)
+
+[node name="Grass_Wispy_Short239" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.1878, 0.117186, -4.94299)
+
+[node name="Grass_Wispy_Short240" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.84183, 0.117186, -4.70478)
+
+[node name="Grass_Wispy_Short241" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 3.75591, 0.117186, -5.26122)
+
+[node name="Grass_Wispy_Short242" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 3.59745, 0.117186, -5.99048)
+
+[node name="Grass_Wispy_Short243" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.25147, 0.117186, -5.75228)
+
+[node name="Grass_Wispy_Short244" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 4.04495, 0.117186, -3.93096)
+
+[node name="Grass_Wispy_Short245" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 3.88649, 0.117186, -4.66023)
+
+[node name="Grass_Wispy_Short246" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 4.54052, 0.117186, -4.42202)
+
+[node name="Grass_Wispy_Short91" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.3087, 0.117186, -2.75978)
+
+[node name="Grass_Wispy_Short92" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.15024, 0.117186, -3.48905)
+
+[node name="Grass_Wispy_Short93" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.80427, 0.117186, -3.25084)
+
+[node name="Grass_Wispy_Short94" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.212331, 0, -0.977198, 0, 1, 0, 0.977198, 0, 0.212331, 5.59775, 0.117186, -1.42953)
+
+[node name="Grass_Wispy_Short95" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 5.43929, 0.117186, -2.15879)
+
+[node name="Grass_Wispy_Short96" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.305679, 0, -0.952135, 0, 1, 0, 0.952135, 0, -0.305679, 6.09331, 0.117186, -1.92059)
+
+[node name="Grass_Wispy_Short97" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 8.99552, 0.117186, 3.53189)
+
+[node name="Grass_Wispy_Short98" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 9.73559, 0.117186, 3.62797)
+
+[node name="Grass_Wispy_Short99" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 9.29127, 0.117186, 4.16376)
+
+[node name="Grass_Wispy_Short100" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 7.64555, 0.117186, 3.35663)
+
+[node name="Grass_Wispy_Short101" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.38563, 0.117186, 3.45271)
+
+[node name="Grass_Wispy_Short102" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 7.9413, 0.117186, 3.9885)
+
+[node name="Grass_Wispy_Short103" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 9.14673, 0.117186, 2.36715)
+
+[node name="Grass_Wispy_Short104" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 9.8868, 0.117186, 2.46323)
+
+[node name="Grass_Wispy_Short105" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 9.44248, 0.117186, 2.99903)
+
+[node name="Grass_Wispy_Short247" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 3.78179, 0.117186, 2.36715)
+
+[node name="Grass_Wispy_Short248" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 4.52187, 0.117186, 2.46323)
+
+[node name="Grass_Wispy_Short249" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 4.07754, 0.117186, 2.99903)
+
+[node name="Grass_Wispy_Short250" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 4.00925, 0.117186, 0.970266)
+
+[node name="Grass_Wispy_Short251" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 4.74932, 0.117186, 1.06635)
+
+[node name="Grass_Wispy_Short252" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 4.305, 0.117186, 1.60214)
+
+[node name="Grass_Wispy_Short106" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 7.79676, 0.117186, 2.1919)
+
+[node name="Grass_Wispy_Short107" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.53684, 0.117186, 2.28798)
+
+[node name="Grass_Wispy_Short193" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 8.15832, 0.117186, 0.444123)
+
+[node name="Grass_Wispy_Short194" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.507132, 0, 0.861868, 0, 1, 0, -0.861868, 0, -0.507132, 7.78521, 0.117186, -1.35049)
+
+[node name="Grass_Wispy_Short195" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 8.16368, 0.117186, -0.707289)
+
+[node name="Grass_Wispy_Short196" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 7.46796, 0.117186, -0.729132)
+
+[node name="Grass_Wispy_Short197" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.507132, 0, 0.861868, 0, 1, 0, -0.861868, 0, -0.507132, 9.48784, 0.117186, -0.772865)
+
+[node name="Grass_Wispy_Short198" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 9.86631, 0.117186, -0.129666)
+
+[node name="Grass_Wispy_Short199" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 9.17059, 0.117186, -0.15151)
+
+[node name="Grass_Wispy_Short200" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.507132, 0, 0.861868, 0, 1, 0, -0.861868, 0, -0.507132, 8.79749, 0.117186, -1.94612)
+
+[node name="Grass_Wispy_Short201" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 9.17595, 0.117186, -1.30292)
+
+[node name="Grass_Wispy_Short202" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 10.5003, 0.117186, -0.206143)
+
+[node name="Grass_Wispy_Short203" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.507132, 0, 0.861868, 0, 1, 0, -0.861868, 0, -0.507132, 10.1272, 0.117186, -2.00075)
+
+[node name="Grass_Wispy_Short204" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 10.5056, 0.117186, -1.35756)
+
+[node name="Grass_Wispy_Short205" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 9.8099, 0.117186, -1.3794)
+
+[node name="Grass_Wispy_Short206" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.507132, 0, 0.861868, 0, 1, 0, -0.861868, 0, -0.507132, 11.8298, 0.117186, -1.42313)
+
+[node name="Grass_Wispy_Short207" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 12.2082, 0.117186, -0.779932)
+
+[node name="Grass_Wispy_Short208" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 11.5125, 0.117186, -0.801777)
+
+[node name="Grass_Wispy_Short209" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.507132, 0, 0.861868, 0, 1, 0, -0.861868, 0, -0.507132, 11.1394, 0.117186, -2.59639)
+
+[node name="Grass_Wispy_Short210" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.00724301, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00724301, 11.5179, 0.117186, -1.95319)
+
+[node name="Grass_Wispy_Short108" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.09251, 0.117186, 2.82377)
+
+[node name="Grass_Wispy_Short109" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 9.31817, 0.117186, 1.04657)
+
+[node name="Grass_Wispy_Short110" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 10.0582, 0.117186, 1.14265)
+
+[node name="Grass_Wispy_Short111" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 9.61392, 0.117186, 1.67844)
+
+[node name="Grass_Wispy_Short112" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 7.96821, 0.117186, 0.871309)
+
+[node name="Grass_Wispy_Short113" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.70828, 0.117186, 0.967388)
+
+[node name="Grass_Wispy_Short114" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.26396, 0.117186, 1.50318)
+
+[node name="Grass_Wispy_Short115" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 9.46938, 0.117186, -0.11817)
+
+[node name="Grass_Wispy_Short116" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 10.2095, 0.117186, -0.0220904)
+
+[node name="Grass_Wispy_Short117" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 9.76513, 0.117186, 0.513701)
+
+[node name="Grass_Wispy_Short118" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 8.11942, 0.117186, -0.293427)
+
+[node name="Grass_Wispy_Short119" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.85949, 0.117186, -0.197348)
+
+[node name="Grass_Wispy_Short120" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 8.41517, 0.117186, 0.338444)
+
+[node name="Grass_Wispy_Short121" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 6.37939, 0.117186, 3.19226)
+
+[node name="Grass_Wispy_Short122" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 7.11946, 0.117186, 3.28833)
+
+[node name="Grass_Wispy_Short123" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 6.67514, 0.117186, 3.82413)
+
+[node name="Grass_Wispy_Short124" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 5.02942, 0.117186, 3.017)
+
+[node name="Grass_Wispy_Short125" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 5.7695, 0.117186, 3.11308)
+
+[node name="Grass_Wispy_Short126" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 5.32518, 0.117186, 3.64887)
+
+[node name="Grass_Wispy_Short127" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 6.5306, 0.117186, 2.02752)
+
+[node name="Grass_Wispy_Short128" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 7.27067, 0.117186, 2.1236)
+
+[node name="Grass_Wispy_Short129" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 6.82635, 0.117186, 2.65939)
+
+[node name="Grass_Wispy_Short130" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 5.18064, 0.117186, 1.85226)
+
+[node name="Grass_Wispy_Short131" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 5.92071, 0.117186, 1.94834)
+
+[node name="Grass_Wispy_Short132" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 5.47639, 0.117186, 2.48413)
+
+[node name="Grass_Wispy_Short133" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 6.70204, 0.117186, 0.70693)
+
+[node name="Grass_Wispy_Short134" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 7.44212, 0.117186, 0.80301)
+
+[node name="Grass_Wispy_Short135" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 6.9978, 0.117186, 1.3388)
+
+[node name="Grass_Wispy_Short136" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 5.35208, 0.117186, 0.531672)
+
+[node name="Grass_Wispy_Short137" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 6.09215, 0.117186, 0.627752)
+
+[node name="Grass_Wispy_Short138" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 5.64783, 0.117186, 1.16354)
+
+[node name="Grass_Wispy_Short139" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 6.85325, 0.117186, -0.457806)
+
+[node name="Grass_Wispy_Short140" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 7.59333, 0.117186, -0.361726)
+
+[node name="Grass_Wispy_Short141" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 7.14901, 0.117186, 0.174065)
+
+[node name="Grass_Wispy_Short142" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.991678, 0, 0.128744, 0, 1, 0, -0.128744, 0, -0.991678, 5.50329, 0.117186, -0.633063)
+
+[node name="Grass_Wispy_Short143" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 6.24336, 0.117186, -0.536984)
+
+[node name="Grass_Wispy_Short144" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.793831, 0, 0.608138, 0, 1, 0, -0.608138, 0, -0.793831, 5.79904, 0.117186, -0.00119257)
+
+[node name="Grass_Wispy_Short145" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 10.5144, 0.117186, 3.59448)
+
+[node name="Grass_Wispy_Short146" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.6684, 0.117186, 4.32471)
+
+[node name="Grass_Wispy_Short147" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.0159, 0.117186, 4.08249)
+
+[node name="Grass_Wispy_Short148" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 10.2336, 0.117186, 2.26248)
+
+[node name="Grass_Wispy_Short149" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.3876, 0.117186, 2.9927)
+
+[node name="Grass_Wispy_Short150" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 9.735, 0.117186, 2.75048)
+
+[node name="Grass_Wispy_Short151" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 11.6637, 0.117186, 3.35215)
+
+[node name="Grass_Wispy_Short152" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 11.8177, 0.117186, 4.08238)
+
+[node name="Grass_Wispy_Short153" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 11.1651, 0.117186, 3.84016)
+
+[node name="Grass_Wispy_Short154" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 11.3828, 0.117186, 2.02015)
+
+[node name="Grass_Wispy_Short155" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 11.5368, 0.117186, 2.75038)
+
+[node name="Grass_Wispy_Short156" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.8842, 0.117186, 2.50816)
+
+[node name="Grass_Wispy_Short157" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 12.9667, 0.117186, 3.0774)
+
+[node name="Grass_Wispy_Short158" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.1207, 0.117186, 3.80762)
+
+[node name="Grass_Wispy_Short159" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 12.4681, 0.117186, 3.5654)
+
+[node name="Grass_Wispy_Short160" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 12.6858, 0.117186, 1.74539)
+
+[node name="Grass_Wispy_Short161" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 12.8398, 0.117186, 2.47562)
+
+[node name="Grass_Wispy_Short162" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 12.1873, 0.117186, 2.2334)
+
+[node name="Grass_Wispy_Short163" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 14.1159, 0.117186, 2.83507)
+
+[node name="Grass_Wispy_Short164" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 14.2699, 0.117186, 3.56529)
+
+[node name="Grass_Wispy_Short165" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.6174, 0.117186, 3.32307)
+
+[node name="Grass_Wispy_Short166" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 13.8351, 0.117186, 1.50306)
+
+[node name="Grass_Wispy_Short167" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.989, 0.117186, 2.23329)
+
+[node name="Grass_Wispy_Short168" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.3365, 0.117186, 1.99107)
+
+[node name="Grass_Wispy_Short169" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 9.97015, 0.117186, 1.01316)
+
+[node name="Grass_Wispy_Short170" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.1241, 0.117186, 1.74339)
+
+[node name="Grass_Wispy_Short171" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 9.47157, 0.117186, 1.50117)
+
+[node name="Grass_Wispy_Short172" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 9.68928, 0.117186, -0.318843)
+
+[node name="Grass_Wispy_Short173" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 9.84325, 0.117186, 0.411385)
+
+[node name="Grass_Wispy_Short174" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 9.1907, 0.117186, 0.169165)
+
+[node name="Grass_Wispy_Short175" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 11.1194, 0.117186, 0.770831)
+
+[node name="Grass_Wispy_Short176" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 11.2734, 0.117186, 1.50106)
+
+[node name="Grass_Wispy_Short177" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.6208, 0.117186, 1.25884)
+
+[node name="Grass_Wispy_Short178" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 10.8385, 0.117186, -0.561172)
+
+[node name="Grass_Wispy_Short179" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.9925, 0.117186, 0.169056)
+
+[node name="Grass_Wispy_Short180" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 10.3399, 0.117186, -0.0731645)
+
+[node name="Grass_Wispy_Short181" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 12.4224, 0.117186, 0.496076)
+
+[node name="Grass_Wispy_Short182" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 12.5764, 0.117186, 1.2263)
+
+[node name="Grass_Wispy_Short183" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 11.9238, 0.117186, 0.984083)
+
+[node name="Grass_Wispy_Short184" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 12.1415, 0.117186, -0.835927)
+
+[node name="Grass_Wispy_Short185" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 12.2955, 0.117186, -0.105701)
+
+[node name="Grass_Wispy_Short186" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 11.643, 0.117186, -0.34792)
+
+[node name="Grass_Wispy_Short187" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 13.5716, 0.117186, 0.253745)
+
+[node name="Grass_Wispy_Short188" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.7256, 0.117186, 0.983973)
+
+[node name="Grass_Wispy_Short189" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.0731, 0.117186, 0.741754)
+
+[node name="Grass_Wispy_Short190" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(-0.206324, 0, 0.978484, 0, 1, 0, -0.978484, 0, -0.206324, 13.2908, 0.117186, -1.07826)
+
+[node name="Grass_Wispy_Short191" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 13.4448, 0.117186, -0.34803)
+
+[node name="Grass_Wispy_Short192" parent="Entorno" instance=ExtResource("16_m0siw")]
+transform = Transform3D(0.311522, 0, 0.950239, 0, 1, 0, -0.950239, 0, 0.311522, 12.7922, 0.117186, -0.590249)
+
+[node name="RockPath_Round_Small_1" parent="Entorno" instance=ExtResource("17_2pcon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59709, 0.117187, -5.96439)
+
+[node name="RockPath_Round_Small_2" parent="Entorno" instance=ExtResource("18_scvra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7695, 0.117187, -4.62701)
+
+[node name="RockPath_Round_Thin" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87678, 0.117187, -3.02983)
+
+[node name="RockPath_Round_Thin4" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.10189, 0, 0.994796, 0, 1, 0, -0.994796, 0, 0.10189, 5.1959, 0.117187, 4.86324)
+
+[node name="RockPath_Round_Thin5" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.10189, 0, 0.994796, 0, 1, 0, -0.994796, 0, 0.10189, 7.1491, 0.117187, 5.04821)
+
+[node name="RockPath_Round_Thin6" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.10189, 0, 0.994796, 0, 1, 0, -0.994796, 0, 0.10189, 9.05864, 0.117187, 5.2303)
+
+[node name="RockPath_Round_Thin7" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.10189, 0, 0.994796, 0, 1, 0, -0.994796, 0, 0.10189, 11.0485, 0.117187, 5.37134)
+
+[node name="RockPath_Round_Thin8" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.234141, 0, 0.972203, 0, 1, 0, -0.972203, 0, -0.234141, 13.0089, 0.117187, 5.00249)
+
+[node name="RockPath_Round_Thin9" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.234141, 0, 0.972203, 0, 1, 0, -0.972203, 0, -0.234141, 15.0113, 0.117187, 4.54079)
+
+[node name="RockPath_Round_Thin10" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.99656, 0, -0.0828779, 0, 1, 0, 0.0828779, 0, -0.99656, 15.3399, 0.117187, 2.65575)
+
+[node name="RockPath_Round_Thin11" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.99492, 0, -0.100674, 0, 1, 0, 0.100674, 0, -0.99492, 15.0215, 0.117187, 0.707736)
+
+[node name="RockPath_Round_Thin12" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.99492, 0, -0.100674, 0, 1, 0, 0.100674, 0, -0.99492, 14.7687, 0.117187, -1.32701)
+
+[node name="RockPath_Round_Thin13" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.99492, 0, -0.100674, 0, 1, 0, 0.100674, 0, -0.99492, 14.5453, 0.117187, -3.2902)
+
+[node name="RockPath_Round_Thin14" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.994258, 0, 0.10701, 0, 1, 0, -0.10701, 0, -0.994258, 14.6722, 0.117187, -5.2936)
+
+[node name="RockPath_Round_Thin15" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.978735, 0, -0.205128, 0, 1, 0, 0.205128, 0, -0.978735, 14.6812, 0.117187, -7.33816)
+
+[node name="RockPath_Round_Thin16" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.0427126, 0, -0.999087, 0, 1, 0, 0.999087, 0, -0.0427126, 12.8877, 0.117187, -7.71475)
+
+[node name="RockPath_Round_Thin17" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.0427126, 0, -0.999087, 0, 1, 0, 0.999087, 0, -0.0427126, 10.9427, 0.117187, -7.71475)
+
+[node name="RockPath_Round_Thin18" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.0427126, 0, -0.999087, 0, 1, 0, 0.999087, 0, -0.0427126, 9.00408, 0.117187, -7.71475)
+
+[node name="RockPath_Round_Thin19" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(-0.0427126, 0, -0.999087, 0, 1, 0, 0.999087, 0, -0.0427126, 7.04147, 0.117187, -7.71475)
+
+[node name="RockPath_Round_Thin20" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.116185, 0, -0.993228, 0, 1, 0, 0.993228, 0, 0.116185, 5.10233, 0.117187, -7.52496)
+
+[node name="RockPath_Round_Thin21" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.116185, 0, -0.993228, 0, 1, 0, 0.993228, 0, 0.116185, 3.16403, 0.117187, -7.21411)
+
+[node name="RockPath_Round_Thin2" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87678, 0.117187, -1.2012)
+
+[node name="RockPath_Round_Thin3" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87678, 0.117187, 0.763531)
+
+[node name="RockPath_Round_Thin22" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87678, 0.117187, 2.68662)
+
+[node name="RockPath_Round_Thin23" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87678, 0.117187, 4.63564)
+
+[node name="RockPath_Round_Thin24" parent="Entorno" instance=ExtResource("19_wn1vc")]
+transform = Transform3D(0.00815056, 0, 0.999967, 0, 1, 0, -0.999967, 0, 0.00815056, 4.64923, 0.117187, 4.8702)
+
+[node name="Borde" type="Node" parent="."]
+
+[node name="Mountain_winter_005" parent="Borde" instance=ExtResource("14_7242p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.243, 0.12, -43.736)
+
+[node name="Mountain_winter_001" parent="Borde" instance=ExtResource("10_b33ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.468, 0.12, -43.592)
+
+[node name="Mountain_winter_006" parent="Borde" instance=ExtResource("11_v4ngk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.38, 0.12, -43.127)
+
+[node name="Mountain_winter_007" parent="Borde" instance=ExtResource("14_7242p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.243, 0.12, 50.0212)
+
+[node name="Mountain_winter_002" parent="Borde" instance=ExtResource("10_b33ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.468, 0.12, 50.1652)
+
+[node name="Mountain_winter_008" parent="Borde" instance=ExtResource("11_v4ngk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.38, 0.12, 49.5914)
+
+[node name="Mountain_winter_009" parent="Borde" instance=ExtResource("14_7242p")]
+transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, -51.8329, 0.12, -24.1128)
+
+[node name="Mountain_winter_003" parent="Borde" instance=ExtResource("10_b33ht")]
+transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, -50.9229, 0.12, 4.5841)
+
+[node name="Mountain_winter_010" parent="Borde" instance=ExtResource("11_v4ngk")]
+transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, -50.645, 0.12, 36.5)
+
+[node name="Mountain_winter_011" parent="Borde" instance=ExtResource("14_7242p")]
+transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, 49.1339, 0.12, -24.1128)
+
+[node name="Mountain_winter_004" parent="Borde" instance=ExtResource("10_b33ht")]
+transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, 50.0439, 0.12, 4.5841)
+
+[node name="Mountain_winter_012" parent="Borde" instance=ExtResource("11_v4ngk")]
+transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, 50.3218, 0.12, 36.5)
+
+[node name="Tree_Winter_001" parent="." instance=ExtResource("13_e38bo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5868, 0.117187, -14.4097)
+
+[node name="Tree_Winter_003" parent="." instance=ExtResource("14_1y3df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1407, 0.117187, -14.7511)
+
+[node name="Tree_Winter_005" parent="." instance=ExtResource("16_itvey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4944, 0.117187, -14.5334)
+
+[node name="Tree_Winter_010" parent="." instance=ExtResource("16_eine1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.031, 0.117187, -0.192726)
+
+[node name="Tree_Winter_011" parent="." instance=ExtResource("17_bphd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.421, 0.117187, 3.58291)
+
+[node name="Tree_Winter_012" parent="." instance=ExtResource("18_mvy6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9454, 0.117187, -0.843732)
+
+[node name="Tree_Winter_013" parent="." instance=ExtResource("19_uwh1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.04189, 0.117187, 5.6343)
+
+[node name="Tree_Winter_014" parent="." instance=ExtResource("20_vkjbi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8617, 0.117187, 10.1546)
+
+[node name="Tree_Winter_015" parent="." instance=ExtResource("21_7scxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3187, 0.117187, 8.10748)
+
+[node name="Tree_Winter_019" parent="." instance=ExtResource("22_c7uoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5364, 0.117187, 3.39624)
+
+[node name="Tree_Winter_020" parent="." instance=ExtResource("23_dauj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4555, 0.117187, -2.34061)

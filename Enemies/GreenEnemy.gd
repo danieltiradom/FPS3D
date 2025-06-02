@@ -6,7 +6,7 @@ var enemy_damage: int = 1
 var attack_dist: float = 1.5
 var attack_rate: float = 0.1
 
-var move_speed: float = 3.5
+var move_speed: float = 3.6
 var vel: Vector3 = Vector3.ZERO
 
 @onready var timer: Timer = $Timer
