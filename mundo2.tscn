@@ -7,22 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://2k110xsbgqm0" path="res://Models/WinterAssets/Mountains/Tscn/mountain_winter_001.tscn" id="10_b33ht"]
 [ext_resource type="Texture2D" uid="uid://fb0mmenegngy" path="res://Models/textura_blanca.jpg" id="11_dkrng"]
 [ext_resource type="PackedScene" uid="uid://ccfnqqk2qub46" path="res://Models/WinterAssets/Mountains/Tscn/mountain_winter_006.tscn" id="11_v4ngk"]
-[ext_resource type="PackedScene" uid="uid://c5mtwdrwa6v6o" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_001.fbx" id="13_e38bo"]
-[ext_resource type="PackedScene" uid="uid://dihmeq4yxkeuw" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_003.fbx" id="14_1y3df"]
+[ext_resource type="PackedScene" uid="uid://de4i5448mivfd" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_001.tscn" id="13_r4ypx"]
+[ext_resource type="PackedScene" uid="uid://ceseq3uriadn1" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_003.tscn" id="14_2jhfj"]
 [ext_resource type="PackedScene" uid="uid://ca7btt4c018si" path="res://Models/WinterAssets/Mountains/Tscn/mountain_winter_005.tscn" id="14_7242p"]
-[ext_resource type="PackedScene" uid="uid://dome8fjhbiw1" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_010.fbx" id="16_eine1"]
-[ext_resource type="PackedScene" uid="uid://b771odhlxy4yd" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_005.fbx" id="16_itvey"]
+[ext_resource type="PackedScene" uid="uid://dp12mxgj5r3xd" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_005.tscn" id="15_r4g0u"]
 [ext_resource type="PackedScene" uid="uid://claq2j65pflji" path="res://Models/Nature Kit/FBX/Grass_Wispy_Short.fbx" id="16_m0siw"]
+[ext_resource type="PackedScene" uid="uid://dg8gx33fkb23c" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_010.tscn" id="16_uoiph"]
 [ext_resource type="PackedScene" uid="uid://dpy2g2j2ryb5d" path="res://Models/Nature Kit/FBX/RockPath_Round_Small_1.fbx" id="17_2pcon"]
-[ext_resource type="PackedScene" uid="uid://dl7s72kcr2itw" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_011.fbx" id="17_bphd2"]
-[ext_resource type="PackedScene" uid="uid://5sqc3u6cyp5h" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_012.fbx" id="18_mvy6g"]
+[ext_resource type="PackedScene" uid="uid://dlkhll5ypecs7" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_011.tscn" id="17_dbwsn"]
+[ext_resource type="PackedScene" uid="uid://d104tcxoq2dxk" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_012.tscn" id="18_j7l4x"]
 [ext_resource type="PackedScene" uid="uid://bsbkcq46mkvfk" path="res://Models/Nature Kit/FBX/RockPath_Round_Small_2.fbx" id="18_scvra"]
-[ext_resource type="PackedScene" uid="uid://b87alxri6m514" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_013.fbx" id="19_uwh1o"]
+[ext_resource type="PackedScene" uid="uid://c5bv2lq55ppoj" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_013.tscn" id="19_fd0as"]
 [ext_resource type="PackedScene" uid="uid://cjy32r2d0q0p8" path="res://Models/Nature Kit/FBX/RockPath_Round_Thin.fbx" id="19_wn1vc"]
-[ext_resource type="PackedScene" uid="uid://dcprik5687sqf" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_014.fbx" id="20_vkjbi"]
-[ext_resource type="PackedScene" uid="uid://dk8g8a31sql8v" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_015.fbx" id="21_7scxq"]
-[ext_resource type="PackedScene" uid="uid://30oyabytlhrh" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_019.fbx" id="22_c7uoi"]
-[ext_resource type="PackedScene" uid="uid://b1ttxik8ej8c1" path="res://Models/WinterAssets/Trees/Fbx/Tree_Winter_020.fbx" id="23_dauj7"]
+[ext_resource type="PackedScene" uid="uid://cg8l1knvguxk8" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_014.tscn" id="20_n65t3"]
+[ext_resource type="PackedScene" uid="uid://3wsv8nhtq4rx" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_015.tscn" id="21_ntilm"]
+[ext_resource type="PackedScene" uid="uid://dmjwy2ty60l0p" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_019.tscn" id="22_e2eo3"]
+[ext_resource type="PackedScene" uid="uid://hb1xxwsumhk8" path="res://Models/WinterAssets/Trees/Tscn/tree_winter_020.tscn" id="23_n4cuw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7ekk"]
 albedo_texture = ExtResource("1_duhe3")
@@ -1015,35 +1015,35 @@ transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.02668
 [node name="Mountain_winter_012" parent="Borde" instance=ExtResource("11_v4ngk")]
 transform = Transform3D(-0.0266829, 0, 0.999644, 0, 1, 0, -0.999644, 0, -0.0266829, 50.3218, 0.12, 36.5)
 
-[node name="Tree_Winter_001" parent="." instance=ExtResource("13_e38bo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5868, 0.117187, -14.4097)
+[node name="Tree_Winter_001" parent="." instance=ExtResource("13_r4ypx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7567, 0.117187, -11.3066)
 
-[node name="Tree_Winter_003" parent="." instance=ExtResource("14_1y3df")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1407, 0.117187, -14.7511)
+[node name="Tree_Winter_003" parent="." instance=ExtResource("14_2jhfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3936, 0.117187, -13.2937)
 
-[node name="Tree_Winter_005" parent="." instance=ExtResource("16_itvey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4944, 0.117187, -14.5334)
+[node name="Tree_Winter_005" parent="." instance=ExtResource("15_r4g0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7653, 0.117186, -15.7713)
 
-[node name="Tree_Winter_010" parent="." instance=ExtResource("16_eine1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.031, 0.117187, -0.192726)
+[node name="Tree_Winter_010" parent="." instance=ExtResource("16_uoiph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4899, 0.117187, -8.26305)
 
-[node name="Tree_Winter_011" parent="." instance=ExtResource("17_bphd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.421, 0.117187, 3.58291)
+[node name="Tree_Winter_011" parent="." instance=ExtResource("17_dbwsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0144, 0.117187, -9.498)
 
-[node name="Tree_Winter_012" parent="." instance=ExtResource("18_mvy6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9454, 0.117187, -0.843732)
+[node name="Tree_Winter_012" parent="." instance=ExtResource("18_j7l4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1915, 0.117187, -11.6579)
 
-[node name="Tree_Winter_013" parent="." instance=ExtResource("19_uwh1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.04189, 0.117187, 5.6343)
+[node name="Tree_Winter_013" parent="." instance=ExtResource("19_fd0as")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.02475, 0.117187, -19.1176)
 
-[node name="Tree_Winter_014" parent="." instance=ExtResource("20_vkjbi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8617, 0.117187, 10.1546)
+[node name="Tree_Winter_014" parent="." instance=ExtResource("20_n65t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3284, 0.117187, -5.53353)
 
-[node name="Tree_Winter_015" parent="." instance=ExtResource("21_7scxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3187, 0.117187, 8.10748)
+[node name="Tree_Winter_015" parent="." instance=ExtResource("21_ntilm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1556, 0.117187, -2.57662)
 
-[node name="Tree_Winter_019" parent="." instance=ExtResource("22_c7uoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5364, 0.117187, 3.39624)
+[node name="Tree_Winter_019" parent="." instance=ExtResource("22_e2eo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6358, 0.117187, -5.15751)
 
-[node name="Tree_Winter_020" parent="." instance=ExtResource("23_dauj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4555, 0.117187, -2.34061)
+[node name="Tree_Winter_020" parent="." instance=ExtResource("23_n4cuw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7957, 0.117187, -7.36941)

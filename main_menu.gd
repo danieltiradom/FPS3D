@@ -9,7 +9,7 @@ func _ready():
 
 
 func on_play_pressed():
-	get_tree().change_scene_to_file("res://mundo.tscn")
+	get_tree().change_scene_to_file("res://LevelSelector.tscn")
 
 func on_options_pressed():
 	# Si no hay opciones aún, puedes mostrar un mensaje temporal o dejarlo vacío

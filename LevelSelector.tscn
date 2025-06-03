@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgtrwnomriiqd"]
+
+[ext_resource type="Script" path="res://level_selector.gd" id="1_0ujqx"]
+[ext_resource type="Texture2D" uid="uid://bvl3n7wjkicnr" path="res://Models/menu_bg.png" id="1_yiujy"]
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ujqx")
+
+[node name="bgImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -669.0
+offset_top = -341.5
+offset_right = 669.0
+offset_bottom = 341.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yiujy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -320.0
+offset_right = 161.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Volver
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -52.0
+offset_right = 400.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Facil" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "   Facil   "
+
+[node name="Normal" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Normal"
+
+[node name="Dificil" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "  Dificil  "
