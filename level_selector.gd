@@ -16,8 +16,8 @@ func on_normal_pressed():
 	get_tree().change_scene_to_file("res://mundo2.tscn")
 	
 func on_dificil_pressed():
-	#get_tree().change_scene_to_file("res://mundo3.tscn")
-	print("Opciones aún no implementadas")
+	get_tree().change_scene_to_file("res://mundo3.tscn")
+	#print("Opciones aún no implementadas")
 
 func on_volver_pressed():
 	get_tree().change_scene_to_file("res://MainMenu.tscn")

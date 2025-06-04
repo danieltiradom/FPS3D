@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed = 7
+var speed = 7.5
 var gravity = 9.8
 var jump = 4.5
 var hp: int = 5

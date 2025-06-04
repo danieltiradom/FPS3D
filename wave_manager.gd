@@ -7,14 +7,16 @@ extends Node
 @onready var ui_wave_label = get_tree().current_scene.get_node("UI/WaveLabel")
 
 
-var current_wave = 0
+var current_wave = 14
 var enemies_remaining = 0
 var spawning = false
 
 var enemy_scenes = {
 	"Red": preload("res://Enemies/Enemy.tscn"),
 	"Blue": preload("res://Enemies/BlueEnemy.tscn"),
-	"Green": preload("res://Enemies/GreenEnemy.tscn")
+	"Green": preload("res://Enemies/GreenEnemy.tscn"),
+	"Yellow": preload("res://Enemies/YellowEnemy.tscn"),
+	"Pink": preload("res://Enemies/PinkEnemy.tscn")
 }
 
 var rounds_data = {

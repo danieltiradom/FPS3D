@@ -6,7 +6,7 @@ var enemy_damage: int = 1
 var attack_dist: float = 1.5
 var attack_rate: float = 0.1
 
-var move_speed: float = Global.Global_speed * 1.4
+var move_speed: float = Global.Global_speed * 3.2
 var vel: Vector3 = Vector3.ZERO
 
 @onready var timer: Timer = $Timer
@@ -26,8 +26,6 @@ func _ready() -> void:
 
 	timer.wait_time = attack_rate
 	timer.start()
-	
-	#print(move_speed)
 
 func _physics_process(delta: float) -> void:
 	if not player:

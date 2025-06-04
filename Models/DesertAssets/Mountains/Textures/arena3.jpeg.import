@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fb0mmenegngy"
-path.s3tc="res://.godot/imported/textura_blanca.jpg-bf0dae5d88ecd3b6fb993aaab14adfe5.s3tc.ctex"
+uid="uid://dt4s0iupw6nu"
+path.s3tc="res://.godot/imported/arena3.jpeg-6a4dfba71a3b17f8637018f41ddca77f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/textura_blanca.jpg"
-dest_files=["res://.godot/imported/textura_blanca.jpg-bf0dae5d88ecd3b6fb993aaab14adfe5.s3tc.ctex"]
+source_file="res://Models/DesertAssets/Mountains/Textures/arena3.jpeg"
+dest_files=["res://.godot/imported/arena3.jpeg-6a4dfba71a3b17f8637018f41ddca77f.s3tc.ctex"]
 
 [params]
 

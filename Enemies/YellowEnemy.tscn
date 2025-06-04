@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwofekbsjuj6d"]
+
+[ext_resource type="Script" path="res://Enemies/YellowEnemy.gd" id="1_wyyf3"]
+[ext_resource type="PackedScene" uid="uid://bbj7rejp6ro2n" path="res://Enemies/GreenEnemy.tscn" id="2_q32vd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dd8d"]
+albedo_color = Color(0.829452, 0.647841, 0.0827257, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bi5ea"]
+material = SubResource("StandardMaterial3D_2dd8d")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b3iym"]
+
+[node name="Enemigo" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_wyyf3")
+next_enemy_scene = ExtResource("2_q32vd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["Enemy"]]
+mesh = SubResource("CapsuleMesh_bi5ea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_b3iym")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

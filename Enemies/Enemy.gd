@@ -2,11 +2,12 @@ extends CharacterBody3D
 
 var health = 1
 
+
 var enemy_damage: int = 1
 var attack_dist: float = 1.5
 var attack_rate: float = 0.1
 
-var move_speed: float = 2.0
+var move_speed: float = Global.Global_speed * 1
 var vel: Vector3 = Vector3.ZERO
 
 @onready var timer: Timer = $Timer
